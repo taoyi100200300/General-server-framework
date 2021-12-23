@@ -3,10 +3,11 @@
 using namespace std;
 using boost::asio::ip::tcp;
 
-session::session(io_service_pool& io_service) :\
+session::session(io_service_pool& io_service, message_queue& msg_loop) :\
 io_service_index(io_service.get_min_count_io_index()),\
 socket_(io_service.get_io_service(io_service_index)),
 io_pool(io_service),\
+message_sender(msg_loop, session_source),
 state(SESSION_STATE_CLOSE)
 {
     

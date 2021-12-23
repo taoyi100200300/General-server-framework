@@ -31,6 +31,12 @@
     <Filter Include="源文件\log">
       <UniqueIdentifier>{c5616f69-3674-4248-b3bb-fa1f1f6510ea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\message">
+      <UniqueIdentifier>{6237e043-3ef0-4dd2-b636-649003d4c2eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\message">
+      <UniqueIdentifier>{b76c135b-c8bb-4f4b-afaa-29e02665a004}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\core\io_service_pool.h">
@@ -47,6 +53,15 @@
     </ClInclude>
     <ClInclude Include="include\log\log.h">
       <Filter>头文件\log</Filter>
+    </ClInclude>
+    <ClInclude Include="include\message\message_queue.h">
+      <Filter>头文件\message</Filter>
+    </ClInclude>
+    <ClInclude Include="include\message\message.h">
+      <Filter>头文件\message</Filter>
+    </ClInclude>
+    <ClInclude Include="include\message\message_sender.h">
+      <Filter>头文件\message</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +82,15 @@
     </ClCompile>
     <ClCompile Include="source\log\log.cpp">
       <Filter>源文件\log</Filter>
+    </ClCompile>
+    <ClCompile Include="source\message\message_queue.cpp">
+      <Filter>源文件\message</Filter>
+    </ClCompile>
+    <ClCompile Include="source\message\message.cpp">
+      <Filter>源文件\message</Filter>
+    </ClCompile>
+    <ClCompile Include="source\message\message_sender.cpp">
+      <Filter>源文件\message</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

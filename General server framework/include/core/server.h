@@ -7,8 +7,9 @@
 #include <boost/thread.hpp>
 #include <core/io_service_pool.h>
 #include <core/session.h>
+#include <message/message_queue.h>
 template<class T>
-class server
+class server:public message_queue
 {
 	static_assert(std::is_base_of <session, T>{}, "server can only support the class base of session!!!");
 public:
@@ -22,5 +23,8 @@ private:
 	boost::asio::ip::tcp::acceptor acceptor_;
 	boost::mutex cout_mtx;
 	std::list<boost::shared_ptr<T>> session_list;
+
+protected:
+	virtual void message_proc(boost::shared_ptr<message> msg);
 };
 #endif

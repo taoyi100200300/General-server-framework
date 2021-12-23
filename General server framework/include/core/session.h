@@ -6,16 +6,17 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 #include <core/io_service_pool.h>
+#include <message/message_sender.h>
 #define MAX_PACKET_LEN 10240
 
 #define SESSION_STATE_CLOSE 0
 #define SESSION_STATE_CONN	1
 
-class session
+class session:public message_sender
 {
 public:
 
-	session(io_service_pool& io_service);
+	session(io_service_pool& io_service, message_queue& msg_loop);
 	virtual ~session();
 	boost::asio::ip::tcp::socket& socket();
 	void start();

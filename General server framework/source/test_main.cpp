@@ -6,7 +6,7 @@
 class test_session :public session
 {
 public:
-	test_session(io_service_pool& io_service):session(io_service)
+	test_session(io_service_pool& io_service, message_queue& msg_loop):session(io_service, msg_loop)
 	{
 
 	}
@@ -33,8 +33,8 @@ int main()
 	//g_InitLog("./");
 	//src::severity_channel_logger<SeverityLevel, std::string> logger;
 	//BOOST_LOG_SEV(logger, Log_Info) << "test";
-	//server<test_session> s(8888, 20);
-	//s.run();
+	server<test_session> s(8888, 20);
+	s.run();
 	//boost::shared_ptr<test_session> sess=s.create_session("127.0.0.1", 6666);
 	while (1);
 }

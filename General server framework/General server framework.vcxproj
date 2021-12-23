@@ -149,6 +149,9 @@
     <ClInclude Include="include\core\server.h" />
     <ClInclude Include="include\core\session.h" />
     <ClInclude Include="include\log\log.h" />
+    <ClInclude Include="include\message\message.h" />
+    <ClInclude Include="include\message\message_queue.h" />
+    <ClInclude Include="include\message\message_sender.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\configure\configure.cpp" />
@@ -156,6 +159,9 @@
     <ClCompile Include="source\core\server.cpp" />
     <ClCompile Include="source\core\session.cpp" />
     <ClCompile Include="source\log\log.cpp" />
+    <ClCompile Include="source\message\message.cpp" />
+    <ClCompile Include="source\message\message_queue.cpp" />
+    <ClCompile Include="source\message\message_sender.cpp" />
     <ClCompile Include="source\test_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

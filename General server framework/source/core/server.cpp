@@ -10,7 +10,7 @@ io_service_pool_(thread_cnt), \
 acceptor_(io_service_pool_.get_io_service(0), \
     tcp::endpoint(tcp::v4(), port))
 {
-    boost::shared_ptr<T> new_session(new T(io_service_pool_));
+    boost::shared_ptr<T> new_session(new T(io_service_pool_,this));
     session_list.push_back(new_session);
     acceptor_.async_accept(new_session->socket(),
         boost::bind(&server::handle_accept, this, new_session, boost::asio::placeholders::error));
@@ -34,7 +34,7 @@ void server<T>::handle_accept(boost::shared_ptr<T> new_session, const boost::sys
     {
         session_list.remove(new_session);
     }
-    boost::shared_ptr<T> prepare_session(new T(io_service_pool_));
+    boost::shared_ptr<T> prepare_session(new T(io_service_pool_, this));
     session_list.push_back(prepare_session);
     acceptor_.async_accept(prepare_session->socket(),
         boost::bind(&server::handle_accept, this, prepare_session, boost::asio::placeholders::error));
@@ -49,7 +49,7 @@ void server<T>::run()
 template<class T>
 boost::shared_ptr<T> server<T>::create_session(std::string ip, unsigned short port)
 {
-    boost::shared_ptr<T> ret(new T(io_service_pool_));
+    boost::shared_ptr<T> ret(new T(io_service_pool_, this));
     try {
         boost::asio::ip::tcp::endpoint end_point(boost::asio::ip::tcp::v4(), port);
         boost::asio::ip::address addr = boost::asio::ip::address::from_string(ip);
@@ -64,4 +64,13 @@ boost::shared_ptr<T> server<T>::create_session(std::string ip, unsigned short po
         return nullptr;
     }
     return ret;
+}
+
+template<class T>
+void server<T>::message_proc(boost::shared_ptr<message> msg)
+{
+    switch (msg->src_type)
+    {
+
+    }
 }
