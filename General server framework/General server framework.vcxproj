@@ -144,14 +144,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\configure\configure.h" />
     <ClInclude Include="include\core\io_service_pool.h" />
     <ClInclude Include="include\core\server.h" />
     <ClInclude Include="include\core\session.h" />
+    <ClInclude Include="include\log\log.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\configure\configure.cpp" />
     <ClCompile Include="source\core\io_service_pool.cpp" />
     <ClCompile Include="source\core\server.cpp" />
     <ClCompile Include="source\core\session.cpp" />
+    <ClCompile Include="source\log\log.cpp" />
     <ClCompile Include="source\test_main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

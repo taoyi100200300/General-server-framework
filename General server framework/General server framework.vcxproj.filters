@@ -19,6 +19,18 @@
     <Filter Include="头文件\core">
       <UniqueIdentifier>{6336b730-64b3-433b-8f4d-475276dda946}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\configure">
+      <UniqueIdentifier>{850ce263-7c7c-4728-a626-44e3ca17a553}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\configure">
+      <UniqueIdentifier>{0ded5264-3330-45e6-a2b0-9273bfcb7152}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\log">
+      <UniqueIdentifier>{0fe193df-5db0-4595-a6bd-ca3567a6f88b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\log">
+      <UniqueIdentifier>{c5616f69-3674-4248-b3bb-fa1f1f6510ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\core\io_service_pool.h">
@@ -29,6 +41,12 @@
     </ClInclude>
     <ClInclude Include="include\core\server.h">
       <Filter>头文件\core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\configure\configure.h">
+      <Filter>头文件\configure</Filter>
+    </ClInclude>
+    <ClInclude Include="include\log\log.h">
+      <Filter>头文件\log</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +61,12 @@
     </ClCompile>
     <ClCompile Include="source\test_main.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="source\configure\configure.cpp">
+      <Filter>源文件\configure</Filter>
+    </ClCompile>
+    <ClCompile Include="source\log\log.cpp">
+      <Filter>源文件\log</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
