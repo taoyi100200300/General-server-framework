@@ -11,9 +11,10 @@
 #include <boost/thread.hpp>
 #include <core/io_service_pool.h>
 #include <core/session.h>
-
+template<class T>
 class server
 {
+	static_assert(std::is_base_of <session, T>{}, "server can only support the class base of session!!!");
 public:
 	server(short port, int thread_cnt);
 	~server();

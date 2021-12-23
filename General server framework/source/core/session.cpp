@@ -24,6 +24,7 @@ void session::close_socket()
     {
         state = SESSION_STATE_CLOSE;
         this->socket_.close();
+        on_disconnected();
     }
 }
 
@@ -32,6 +33,7 @@ void session::set_connect_state()
     last_commucation_time = boost::posix_time::second_clock::local_time();
     connect_time = boost::posix_time::second_clock::local_time();
     state = SESSION_STATE_CONN;
+    on_connected();
 }
 
 tcp::socket& session::socket()
@@ -52,7 +54,7 @@ void session::handle_read(const boost::system::error_code& error, size_t bytes_t
     if (!error)
     {
         this->last_commucation_time = boost::posix_time::second_clock::local_time();
-        cout << "byte:" << bytes_transferred << ":" << data_ << endl;
+        on_data_recv(data_, bytes_transferred);
         start();
     }
     else
