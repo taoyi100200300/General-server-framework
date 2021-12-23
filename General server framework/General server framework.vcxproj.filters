@@ -37,6 +37,18 @@
     <Filter Include="源文件\message">
       <UniqueIdentifier>{b76c135b-c8bb-4f4b-afaa-29e02665a004}</UniqueIdentifier>
     </Filter>
+    <Filter Include="头文件\timer">
+      <UniqueIdentifier>{56d0b423-185d-4836-8579-043d8322b4d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\timer">
+      <UniqueIdentifier>{5e9dc6e4-b9c2-45a1-bfa5-81df20b02fda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\action">
+      <UniqueIdentifier>{cbeb9804-0d21-4fa5-971a-2e7c590faab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\action">
+      <UniqueIdentifier>{66f9cc5d-06af-4afd-8222-cfc4c539b86c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\core\io_service_pool.h">
@@ -62,6 +74,24 @@
     </ClInclude>
     <ClInclude Include="include\message\message_sender.h">
       <Filter>头文件\message</Filter>
+    </ClInclude>
+    <ClInclude Include="include\timer\timer.h">
+      <Filter>头文件\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\action\action_manager.h">
+      <Filter>头文件\action</Filter>
+    </ClInclude>
+    <ClInclude Include="include\action\action.h">
+      <Filter>头文件\action</Filter>
+    </ClInclude>
+    <ClInclude Include="include\action\default_on_connected_action.h">
+      <Filter>头文件\action</Filter>
+    </ClInclude>
+    <ClInclude Include="include\action\default_on_disconnect_action.h">
+      <Filter>头文件\action</Filter>
+    </ClInclude>
+    <ClInclude Include="include\action\default_on_error_action.h">
+      <Filter>头文件\action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +121,12 @@
     </ClCompile>
     <ClCompile Include="source\message\message_sender.cpp">
       <Filter>源文件\message</Filter>
+    </ClCompile>
+    <ClCompile Include="source\timer\timer.cpp">
+      <Filter>源文件\timer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\action\action_manager.cpp">
+      <Filter>源文件\action</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

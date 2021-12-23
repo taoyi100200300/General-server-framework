@@ -144,6 +144,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\action\action.h" />
+    <ClInclude Include="include\action\action_manager.h" />
+    <ClInclude Include="include\action\default_on_connected_action.h" />
+    <ClInclude Include="include\action\default_on_disconnect_action.h" />
+    <ClInclude Include="include\action\default_on_error_action.h" />
     <ClInclude Include="include\configure\configure.h" />
     <ClInclude Include="include\core\io_service_pool.h" />
     <ClInclude Include="include\core\server.h" />
@@ -152,8 +157,10 @@
     <ClInclude Include="include\message\message.h" />
     <ClInclude Include="include\message\message_queue.h" />
     <ClInclude Include="include\message\message_sender.h" />
+    <ClInclude Include="include\timer\timer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\action\action_manager.cpp" />
     <ClCompile Include="source\configure\configure.cpp" />
     <ClCompile Include="source\core\io_service_pool.cpp" />
     <ClCompile Include="source\core\server.cpp" />
@@ -163,6 +170,7 @@
     <ClCompile Include="source\message\message_queue.cpp" />
     <ClCompile Include="source\message\message_sender.cpp" />
     <ClCompile Include="source\test_main.cpp" />
+    <ClCompile Include="source\timer\timer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -13,7 +13,8 @@ typedef enum
 {
 	connected,
 	disconnected,
-	error
+	error,
+	user_define
 }message_type;
 
 class message
