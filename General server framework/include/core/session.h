@@ -7,6 +7,7 @@
 #include <boost/asio.hpp>
 #include <core/io_service_pool.h>
 #include <message/message_sender.h>
+
 #define MAX_PACKET_LEN 10240
 
 #define SESSION_STATE_CLOSE 0

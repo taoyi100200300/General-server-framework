@@ -21,7 +21,7 @@ public:
 	void handle_accept(boost::shared_ptr<T> new_session, const boost::system::error_code& error);
 	void run();
 	boost::shared_ptr<T> create_session(std::string ip,unsigned short port);
-	void delete_session(T* sess);
+	void delete_session(boost::uuids::uuid uid);
 private:
 	src::severity_channel_logger<SeverityLevel, std::string> logger;
 	io_service_pool io_service_pool_;

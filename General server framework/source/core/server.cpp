@@ -67,12 +67,12 @@ boost::shared_ptr<T> server<T>::create_session(std::string ip, unsigned short po
 }
 
 template<class T>
-void server<T>::delete_session(T* sess)
+void server<T>::delete_session(boost::uuids::uuid uid)
 {
     auto it = session_list.begin();
     while (it != session_list.end())
     {
-        if ((*it).get() == sess)
+        if ((*it)->uid == uid)
         {
             session_list.erase(it);
             return;
@@ -96,7 +96,7 @@ void server<T>::message_proc(boost::shared_ptr<message> msg)
         on_disconnect_action_loop(msg);
         if (msg->src_type == session_source)
         {
-            delete_session((T*)(((boost::shared_ptr<T>)(msg->src_ptr)).get()));
+            delete_session(msg->uid);
         }
         break;
     }

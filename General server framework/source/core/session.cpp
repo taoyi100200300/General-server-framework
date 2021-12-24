@@ -32,7 +32,7 @@ void session::close_socket()
         {
             (*extra_msg) += "can not get remote ip";
         }
-        send_msg(shared_from_this(), disconnected, extra_msg);
+        send_msg(disconnected, extra_msg);
         state = SESSION_STATE_CLOSE;
         this->socket_.close();
         on_disconnected();
@@ -53,7 +53,7 @@ void session::set_connect_state()
     {
         (*extra_msg) += "can not get remote ip";
     }
-    send_msg(shared_from_this(),connected, extra_msg);
+    send_msg(connected, extra_msg);
     on_connected();
 }
 
