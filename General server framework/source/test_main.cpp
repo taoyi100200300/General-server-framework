@@ -32,6 +32,10 @@ public:
 	{
 		std::cout << "bytes_transferred:" << bytes_transferred<<"        " << buff << std::endl;
 	}
+	virtual void on_data_send()
+	{
+		std::cout << "data send success!!!" << std::endl;
+	}
 	virtual void on_disconnected()
 	{
 		std::cout << "disconnected!!!" << std::endl;

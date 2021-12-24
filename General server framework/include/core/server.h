@@ -20,8 +20,6 @@ public:
 	~server();
 	void handle_accept(boost::shared_ptr<T> new_session, const boost::system::error_code& error);
 	void run();
-	boost::shared_ptr<T> create_session(std::string ip,unsigned short port);
-	void delete_session(boost::uuids::uuid uid);
 private:
 	src::severity_channel_logger<SeverityLevel, std::string> logger;
 	io_service_pool io_service_pool_;
@@ -31,5 +29,10 @@ private:
 
 protected:
 	virtual void message_proc(boost::shared_ptr<message> msg);
+
+public:
+	boost::shared_ptr<T> create_session(std::string ip, unsigned short port);
+	boost::shared_ptr<T> get_session_by_uid(boost::uuids::uuid uid);
+	void delete_session(boost::uuids::uuid uid);
 };
 #endif

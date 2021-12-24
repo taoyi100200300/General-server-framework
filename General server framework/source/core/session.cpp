@@ -32,9 +32,9 @@ void session::close_socket()
         {
             (*extra_msg) += "can not get remote ip";
         }
-        send_msg(disconnected, extra_msg);
         state = SESSION_STATE_CLOSE;
         this->socket_.close();
+        send_msg(disconnected, extra_msg);
         on_disconnected();
     }
 }
@@ -91,7 +91,10 @@ void session::handle_write(const boost::system::error_code& error)
         close_socket();
     }
     else
+    {
         this->last_commucation_time = boost::posix_time::second_clock::local_time();
+        on_data_send();
+    }
 }
 
 void session::send_data(const unsigned char* data, size_t bytes_transferred)

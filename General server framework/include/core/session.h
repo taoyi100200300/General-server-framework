@@ -26,9 +26,16 @@ public:
 	void send_data(const unsigned char* data, size_t bytes_transferred);
 	void close_socket();
 	void set_connect_state();
+
 	virtual void on_connected() = 0;
+
 	virtual void on_data_recv(unsigned char* buff, std::size_t bytes_transferred) = 0;
+
+	virtual void on_data_send()=0;
+
 	virtual void on_disconnected() = 0;
+
+
 private:
 	boost::posix_time::ptime last_commucation_time;
 	boost::posix_time::ptime connect_time;

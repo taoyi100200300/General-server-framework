@@ -67,6 +67,21 @@ boost::shared_ptr<T> server<T>::create_session(std::string ip, unsigned short po
 }
 
 template<class T>
+boost::shared_ptr<T> server<T>::get_session_by_uid(boost::uuids::uuid uid)
+{
+    auto it = session_list.begin();
+    while (it != session_list.end())
+    {
+        if ((*it)->uid == uid)
+        {
+            return (*it);
+        }
+        it++;
+    }
+    return nullptr;
+}
+
+template<class T>
 void server<T>::delete_session(boost::uuids::uuid uid)
 {
     auto it = session_list.begin();
@@ -74,6 +89,7 @@ void server<T>::delete_session(boost::uuids::uuid uid)
     {
         if ((*it)->uid == uid)
         {
+            (*it)->close_socket();
             session_list.erase(it);
             return;
         }
@@ -88,12 +104,12 @@ void server<T>::message_proc(boost::shared_ptr<message> msg)
     {
     case connected:
     {
-        on_connect_action_loop(msg);
+        on_connect_action_chain(msg);
         break;
     }
     case disconnected:
     {
-        on_disconnect_action_loop(msg);
+        on_disconnect_action_chain(msg);
         if (msg->src_type == session_source)
         {
             delete_session(msg->uid);
@@ -102,12 +118,12 @@ void server<T>::message_proc(boost::shared_ptr<message> msg)
     }
     case error:
     {
-        on_error_action_loop(msg);
+        on_error_action_chain(msg);
         break;
     }
     case user_define:
     {
-        on_user_define_action_loop(msg);
+        on_user_define_action_chain(msg);
         break;
     }
     }

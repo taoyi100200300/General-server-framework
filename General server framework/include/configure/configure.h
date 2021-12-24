@@ -2,6 +2,7 @@
 #define _CONFIGURE_H_
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ini_parser.hpp>
+
 class configure
 {
 public:
