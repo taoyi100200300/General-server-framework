@@ -96,6 +96,7 @@
 			为实现服务器的稳定安全，所有对server的操作都应在action中完成，需要对server操作时可以投递消息，通知action完成对服务器的操作
 		
 配置文件读取接口：
+
 	configure：服务器读取配置文件
 	构造：
 		configure(std::string ini_path);
@@ -109,6 +110,7 @@
 			defaule_value	配置项默认值
 			
 日志接口：
+
 	void g_InitLog(std::string log_path)
 	初始化日志系统
 	参数：	log_path	日志存放路径
@@ -118,6 +120,7 @@
 	BOOST_LOG_SEV(logger, Log_Info) << "test";
 	
 定时器接口：
+
 	timer：所有定时器可由此类派生，实现定时触发执行指定任务
 	派生类需实现的接口：
 		virtual void timer_tast()
